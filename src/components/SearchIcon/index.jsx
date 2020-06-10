@@ -2,9 +2,9 @@ import React from 'react';
 
 const Search = () => {
   return (
-    <button class="topbar__search" href="#">
+    <button className="topbar__search" href="#">
       <img
-        class="topbar__icon"
+        className="topbar__icon"
         src="/assets/images/icons/search-line.svg"
         alt="Search"
       />

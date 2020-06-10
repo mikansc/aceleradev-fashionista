@@ -8,7 +8,7 @@ const App = () => {
   return (
     <>
       <TopBar />
-      <main class="main-content">
+      <main className="main-content">
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/product" component={ProductDetail} />

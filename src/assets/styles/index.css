@@ -282,43 +282,57 @@ a:visited {
 
 /* Product details page  */
 
-.product-content {
-  padding-top: 70px;
+.product-detail {
+  margin-top: 1rem;
 }
 
-@media (min-width: 768px) {
-  .product-content {
-    padding-top: 100px;
-  }
+.product-detail .container {
+  align-items: top;
 }
-.product-detail {
-  display: flex;
-  flex-direction: column;
+
+@media (max-width: 425px) {
+  .product-detail {
+    margin-top: -0.6rem;
+  }
+  .product-detail .container {
+    width: 100%;
+  }
 }
 
 .product-detail__image {
   position: relative;
 }
 
-@media (min-width: 600px) {
-  .product-detail {
-    display: flex;
-    flex-direction: row;
-  }
-
-  .product-detail__image {
-    width: 40%;
-    min-width: 250px;
-  }
-}
-
 .product-detail__image img {
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
 }
 
+@media (min-width: 530px) {
+  .product-detail__image {
+    width: 40%;
+    max-width: 470px;
+  }
+}
+
+.product-detail__desc {
+  width: 100%;
+
+  max-width: 380px;
+  padding: 1.5rem 1rem;
+  position: relative;
+}
+
+@media (min-width: 530px) {
+  .product-detail__desc {
+    width: 50%;
+    padding: 0 1rem;
+  }
+}
+
 .product-detail__discount {
   position: absolute;
-  top: -1rem;
+  top: inherit;
+  bottom: -0.6rem;
   left: 1.5rem;
 
   background-color: #303030;
@@ -331,26 +345,13 @@ a:visited {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-@media (min-width: 600px) {
+@media (min-width: 540px) {
   .product-detail__discount {
     top: 1rem;
     left: inherit;
+    bottom: inherit;
     right: 0;
   }
-}
-
-.product-detail__desc {
-  width: 100%;
-  padding: 1.5rem;
-  position: relative;
-}
-@media (min-width: 768px) {
-  .product-detail__desc {
-    max-width: 440px;
-  }
-}
-.product-detail__header {
-  margin-bottom: 3rem;
 }
 
 .product-detail__title {
@@ -368,12 +369,6 @@ a:visited {
   color: #757575;
   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
   font-size: 0.8rem;
-}
-
-@media (max-width: 425px) {
-  .product-content .container {
-    width: 100vw;
-  }
 }
 
 .product-detail__options {
