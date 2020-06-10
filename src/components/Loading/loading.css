@@ -1,0 +1,16 @@
+.loading {
+  margin: 0 auto;
+  height: 62vh;
+
+  text-align: center;
+  font-weight: 700;
+  color: #d20a82;
+}
+
+.loading p {
+  z-index: 2;
+}
+
+.loading img {
+  width: 70px;
+}
