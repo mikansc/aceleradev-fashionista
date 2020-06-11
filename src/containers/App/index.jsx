@@ -1,8 +1,15 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import {
+  Footer,
+  TopBar,
+  ProductDetail,
+  ShoppingBag,
+  Home,
+} from '../../components';
 
-import { Footer, TopBar, ProductDetail, ShoppingBag } from '../../components';
-import { Home } from '../';
+import ProductGrid from '../ProductGrid';
+import BagContainer from '../BagContainer';
 
 const App = () => {
   return (
@@ -10,9 +17,9 @@ const App = () => {
       <TopBar />
       <main className="main-content">
         <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/product" component={ProductDetail} />
-          <Route path="/shopping-bag" component={ShoppingBag} />
+          <Route exact path="/" component={ProductGrid} />
+          <Route exact path="/product/:id" component={ProductDetail} />
+          <Route path="/shopping-bag" component={BagContainer} />
         </Switch>
       </main>
       <Footer />

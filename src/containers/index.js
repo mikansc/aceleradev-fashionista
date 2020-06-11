@@ -1,4 +1,5 @@
-import Home from './Home';
-import Search from './Search';
+import App from './App';
+import ProductGrid from './ProductGrid';
+import ShoppingBag from './BagContainer';
 
-export { Home, Search };
+export { ProductGrid, ShoppingBag, App };
