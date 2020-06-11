@@ -7,8 +7,8 @@ const ShoppingBag = ({ shoppingBag, addToBag, removeFromBag }) => {
     <section className="shopping-cart">
       <div className="container">
         <h2 className="shopping-cart__title">Carrinho de compras</h2>
-        {!shoppingBag ? (
-          <Loading />
+        {shoppingBag.length < 1 ? (
+          <p>Não há produtos para exibir no carrinho de compras.</p>
         ) : (
           shoppingBag.map((item) => (
             <BagItem key={item.sku} item={item} removeFromBag={removeFromBag} />
