@@ -5,6 +5,7 @@ import createSlug from '../../utils';
 
 const Product = ({ product }) => {
   const { name, image, actual_price, on_sale, discount_percentage } = product;
+  let fixImage = image || '/assets/images/20002605_615_catalog_1.jpg';
   const slug = createSlug(name);
   return (
     <article className="product">
@@ -15,18 +16,19 @@ const Product = ({ product }) => {
             state: product,
           }}
         >
-          {!image ? (
-            <img src="/assets/images/20002605_615_catalog_1.jpg " alt="" />
-          ) : (
-            <img src={image} alt={name} />
-          )}
+          <img src={fixImage} alt={name} />
           {on_sale && (
             <span className="product__discount">-{discount_percentage}</span>
           )}
         </Link>
       </div>
       <div className="product__desc">
-        <Link to="/product">
+        <Link
+          to={{
+            pathname: `/product/${slug}`,
+            state: product,
+          }}
+        >
           <h3 className="product__title">{name}</h3>
         </Link>
         {on_sale && (

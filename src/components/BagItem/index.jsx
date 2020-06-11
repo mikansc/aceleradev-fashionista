@@ -1,5 +1,4 @@
 import React from 'react';
-import { removeFromBag } from '../../redux/actions';
 
 const BagItem = ({ item, removeFromBag }) => {
   console.log('BagItem:', item);

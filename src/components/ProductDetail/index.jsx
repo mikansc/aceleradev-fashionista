@@ -2,20 +2,37 @@ import React from 'react';
 
 import {} from '../../redux/actions/';
 
-const ProductDetail = ({ product, setQuantity, setSize }) => {
+const ProductDetail = (props) => {
+  console.log('ProductDetail:', props.location.state);
+  const {
+    name,
+    image,
+    regular_price,
+    actual_price,
+    on_sale,
+    discount_percentage,
+  } = props.location.state;
   return (
     <section className="product-detail">
       <div className="container">
         <div className="product-detail__image">
-          <img src="/assets/images/20002605_615_catalog_1.jpg " alt="" />
-          <span className="product-detail__discount">-12%</span>
+          <img src={image} alt={name} />
+          {on_sale && (
+            <span className="product-detail__discount">
+              -{discount_percentage}
+            </span>
+          )}
         </div>
         <div className="product-detail__desc">
           <div className="product-detail__header">
-            <h1 className="product-detail__title">Vestido Transpasse bow</h1>
-            <p className="product__price product__price--old">R$ 139,90</p>
+            <h1 className="product-detail__title">{name}</h1>
+            {on_sale && (
+              <p className="product__price product__price--old">
+                {regular_price}
+              </p>
+            )}
             <p className="product__price">
-              R$ 119,90
+              {actual_price}
               <span className="product-detail__installments">
                 em até 3x R$ 99,99
               </span>
