@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import {} from '../../redux/actions/';
 
+import {} from '../../utils';
+
 const ProductDetail = (props) => {
-  console.log('ProductDetail:', props.location.state);
+  const [quantity, setQuantity] = useState(0);
+
+  const handleQuantity = (operation) => {
+    if (operation === 'add') {
+      setQuantity(quantity + 1);
+    }
+    if (operation === 'sub') {
+      if (quantity === 0) return;
+      setQuantity(quantity - 1);
+    }
+  };
+
   const {
     name,
     image,
@@ -12,11 +25,13 @@ const ProductDetail = (props) => {
     on_sale,
     discount_percentage,
   } = props.location.state;
+  let fixImage = image || '/assets/images/20002605_615_catalog_1.jpg';
+
   return (
     <section className="product-detail">
       <div className="container">
         <div className="product-detail__image">
-          <img src={image} alt={name} />
+          <img src={fixImage} alt={name} />
           {on_sale && (
             <span className="product-detail__discount">
               -{discount_percentage}
@@ -46,15 +61,15 @@ const ProductDetail = (props) => {
           <div className="product-detail__controls">
             <p className="product-detail__options">Quantidade:</p>
             <div className="product-detail__counter">
-              <button>
+              <button onClick={() => handleQuantity('add')}>
                 <img
                   className="product-detail__count"
                   src="/assets/images/icons/plus-circle.svg"
                   alt="Plus"
                 />
               </button>
-              <span className="product-detail_quantity">01</span>
-              <button>
+              <span className="product-detail_quantity">{quantity}</span>
+              <button onClick={() => handleQuantity('sub')}>
                 <img
                   className="product-detail__count"
                   src="/assets/images/icons/minus-circle.svg"

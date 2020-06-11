@@ -11,10 +11,10 @@ export function addToBag() {
   };
 }
 
-export function removeFromBag(id) {
+export function removeFromBag(sku) {
   return {
     type: REMOVE_FROM_BAG,
-    payload: `Remove the product sku ${id} from bag`,
+    payload: sku,
   };
 }
 

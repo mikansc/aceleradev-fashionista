@@ -1,11 +1,19 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import createSlug from '../../utils';
 
 const Product = ({ product }) => {
-  const { name, image, actual_price, on_sale, discount_percentage } = product;
+  const {
+    name,
+    image,
+    actual_price,
+    on_sale,
+    discount_percentage,
+    regular_price,
+  } = product;
   let fixImage = image || '/assets/images/20002605_615_catalog_1.jpg';
+
   const slug = createSlug(name);
   return (
     <article className="product">
@@ -32,7 +40,7 @@ const Product = ({ product }) => {
           <h3 className="product__title">{name}</h3>
         </Link>
         {on_sale && (
-          <p className="product__price product__price--old">R$ 139,90</p>
+          <p className="product__price product__price--old">{regular_price}</p>
         )}
         <p className="product__price">{actual_price}</p>
       </div>
