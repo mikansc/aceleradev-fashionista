@@ -1,8 +1,7 @@
 import React from 'react';
-import { Loading, BagItem } from '../';
+import { BagItem } from '../';
 
-const ShoppingBag = ({ shoppingBag, addToBag, removeFromBag }) => {
-  console.log('Shopping Bag:', shoppingBag);
+const ShoppingBag = ({ shoppingBag, removeFromBag }) => {
   return (
     <section className="shopping-cart">
       <div className="container">

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { addToBag, removeFromBag } from '../../redux/actions';
+import { removeFromBag } from '../../redux/actions';
 import { ShoppingBag } from '../../components';
 
 const mapStateToProps = (state) => {
@@ -10,7 +10,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addToBag: () => dispatch(addToBag()),
     removeFromBag: (id) => dispatch(removeFromBag(id)),
   };
 };

@@ -4,10 +4,10 @@ export const ADD_TO_BAG = 'ADD_TO_BAG';
 export const REMOVE_FROM_BAG = 'REMOVE_FROM_BAG';
 export const SET_PRODUCTS = 'SET_PRODUCTS';
 
-export function addToBag() {
+export function addToBag(product, quantity) {
   return {
     type: ADD_TO_BAG,
-    payload: 'Add to bag',
+    payload: { product, quantity },
   };
 }
 

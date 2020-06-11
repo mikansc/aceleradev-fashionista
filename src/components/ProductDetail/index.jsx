@@ -1,20 +1,28 @@
 import React, { useState } from 'react';
 
-import {} from '../../redux/actions/';
-
 import {} from '../../utils';
 
 const ProductDetail = (props) => {
-  const [quantity, setQuantity] = useState(0);
+  // const { addToBag } = props;
+  // console.log(addToBag);
+  const [quantity, setQuantity] = useState(1);
+
+  console.log('Ação do state no productDetail: ', props);
 
   const handleQuantity = (operation) => {
     if (operation === 'add') {
       setQuantity(quantity + 1);
     }
     if (operation === 'sub') {
-      if (quantity === 0) return;
+      if (quantity === 1) return;
       setQuantity(quantity - 1);
     }
+  };
+
+  const handleAddToBag = () => {
+    const prod = props.location.state;
+    console.log('Add To Cart:', quantity, prod);
+    props.addToBag(prod, quantity);
   };
 
   const {
@@ -77,7 +85,9 @@ const ProductDetail = (props) => {
                 />
               </button>
             </div>
-            <button className="button-action">Adicionar à sacola</button>
+            <button className="button-action" onClick={handleAddToBag}>
+              Adicionar à sacola
+            </button>
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@ import mock from '../../assets/mock.json';
 import cartmock from '../../assets/cartmock.json';
 
 const initialState = {
-  shoppingBag: cartmock,
+  shoppingBag: [],
   products: mock,
 };
 
@@ -13,7 +13,30 @@ const shopReducer = (state = initialState, action) => {
     case SET_PRODUCTS:
       return { ...state, products: action.payload };
     case ADD_TO_BAG:
-      return { ...state, shoppingBag: action.payload };
+      const { product, quantity } = action.payload;
+      const {
+        name,
+        installments,
+        regular_price,
+        actual_price,
+        total_Price,
+        image,
+      } = product;
+      const newProduct = {
+        name,
+        sku: '5807_343_0_PP',
+        size: 'PP',
+        quantity,
+        installments,
+        regular_price,
+        actual_price,
+        total_Price,
+        image,
+      };
+
+      const newBag = [...state.shoppingBag, newProduct];
+      console.log('Etacaraio', newBag);
+      return { ...state, shoppingBag: newBag };
     case REMOVE_FROM_BAG:
       const { shoppingBag } = state;
       const newShoppingBag = shoppingBag.filter(
