@@ -4,6 +4,7 @@ import {
   REMOVE_FROM_BAG,
   CHANGE_QUANTITY,
   SET_PRODUCTS,
+  SEARCH,
 } from './actionTypes';
 
 export function addToBag(sku, quantity) {
@@ -27,10 +28,10 @@ export function changeQuantity(sku, operation) {
   };
 }
 
-function setProducts(data) {
+export function searchProduct(query) {
   return {
-    type: SET_PRODUCTS,
-    payload: data,
+    type: SEARCH,
+    payload: query,
   };
 }
 
@@ -39,5 +40,12 @@ export function fetchData() {
     return axios
       .get('https://5e9935925eabe7001681c856.mockapi.io/api/v1/catalog')
       .then((data) => dispatch(setProducts(data)));
+  };
+}
+
+function setProducts(data) {
+  return {
+    type: SET_PRODUCTS,
+    payload: data,
   };
 }

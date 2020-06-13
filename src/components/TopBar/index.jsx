@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import BagIcon from './BagIcon';
 import Logo from './Logo.jsx';
 import SearchIcon from './SearchIcon';
-import ShoppingBag from '../ShoppingBag';
+import { Search } from '../';
+
+import { Drawer } from '@material-ui/core';
 
 const TopBar = ({ shoppingBag }) => {
+  const [searchBarStatus, setsearchBarStatus] = useState(false);
+
+  const toggleSearchBar = (value) => {
+    setsearchBarStatus(!searchBarStatus);
+  };
+
   return (
     <>
       <header className="topbar">
@@ -15,7 +23,14 @@ const TopBar = ({ shoppingBag }) => {
             <Logo />
           </Link>
           <div className="topbar__icons">
-            <SearchIcon />
+            <SearchIcon toggleSearchBar={toggleSearchBar} />
+            <Drawer
+              anchor="right"
+              open={searchBarStatus}
+              onClose={toggleSearchBar}
+            >
+              <Search />
+            </Drawer>
             <BagIcon count={shoppingBag.itemCounter} />
           </div>
         </div>

@@ -25,6 +25,10 @@ button {
   cursor: pointer;
 }
 
+button:focus {
+  outline: none;
+}
+
 /* Typography */
 
 h1,
@@ -492,6 +496,43 @@ a:visited {
   }
 }
 
+/* Search screen */
+
 .search {
   background-color: #fff;
+}
+
+.search .container {
+  display: block;
+  margin-left: 0.5rem;
+  width: 96vw;
+  max-width: 400px;
+}
+
+.search__input {
+  width: 80%;
+  margin-bottom: 2rem;
+  padding: 1rem;
+
+  color: #303030;
+  line-height: 20px;
+
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #afafaf;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #afafaf;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #afafaf;
 }

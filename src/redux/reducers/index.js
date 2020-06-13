@@ -2,6 +2,7 @@ import {
   ADD_TO_BAG,
   REMOVE_FROM_BAG,
   SET_PRODUCTS,
+  SEARCH,
 } from '../actions/actionTypes';
 
 import mock from '../../assets/mock.json';
@@ -14,6 +15,10 @@ const initialState = {
     itemCounter: 0,
   },
   products: mock,
+  search: {
+    searchQuery: '',
+    searchResult: [],
+  },
 };
 
 const shopReducer = (state = initialState, { type, payload }) => {
@@ -75,6 +80,19 @@ const shopReducer = (state = initialState, { type, payload }) => {
       // const newShoppingBag = shoppingBag.filter((item) => item.sku !== payload);
       // return { ...state, shoppingBag: newShoppingBag };
       return;
+
+    case SEARCH:
+      const searchResults = state.products.filter((product) =>
+        product.name.toLowerCase().includes(payload.toLowerCase())
+      );
+      console.log(searchResults);
+
+      const newSearch = {
+        searchResult: searchResults,
+        searchQuery: payload,
+      };
+
+      return { ...state, search: newSearch };
 
     default:
       return state;
