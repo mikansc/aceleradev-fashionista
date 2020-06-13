@@ -5,14 +5,13 @@ import {
 } from '../actions/actionTypes';
 
 import mock from '../../assets/mock.json';
-import cartmock from '../../assets/cartmock.json';
 import { parseCurrency, bagItemsTotalizer } from '../../utils';
 
 const initialState = {
   shoppingBag: {
     bag: [],
     total: 0,
-    itemCounter: 6,
+    itemCounter: 0,
   },
   products: mock,
 };

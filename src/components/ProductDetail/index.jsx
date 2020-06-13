@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-import {} from '../../utils';
+import SizeButton from './SizeButton';
 
 const ProductDetail = (props) => {
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState(null);
+
+  useEffect(() => {}, [selectedSize]);
+
+  const handleSizeSelect = (event) => {
+    const sku = event.target.value;
+    setSelectedSize(sku);
+  };
 
   const handleQuantity = (operation) => {
     if (operation === 'add') {
@@ -14,11 +21,6 @@ const ProductDetail = (props) => {
       if (quantity === 1) return;
       setQuantity(quantity - 1);
     }
-  };
-
-  const handleSizeSelect = (event) => {
-    const sku = event.target.value;
-    setSelectedSize(sku);
   };
 
   const handleAddToBag = () => {
@@ -72,18 +74,12 @@ const ProductDetail = (props) => {
           {sizes
             .filter((item) => item.available === true)
             .map((size, idx) => (
-              <button
+              <SizeButton
                 key={idx}
-                value={size.sku}
-                className={
-                  size.size !== selectedSize
-                    ? 'product-detail__size'
-                    : 'product-detail__size product-detail__size--selected'
-                }
-                onClick={(event) => handleSizeSelect(event)}
-              >
-                {size.size}
-              </button>
+                size={size}
+                selected={size.sku === selectedSize}
+                onClickEvent={handleSizeSelect}
+              />
             ))}
 
           <div className="product-detail__controls">
