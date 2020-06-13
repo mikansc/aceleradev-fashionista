@@ -383,6 +383,11 @@ a:visited {
   outline: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+.product-detail__size--selected {
+  background-color: #303030;
+  color: #fff;
+}
+
 .product-detail__controls {
   margin-top: 2rem;
 }

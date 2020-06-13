@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import createSlug from '../../utils';
+import { createSlug } from '../../utils';
 
 const Product = ({ product }) => {
   const {

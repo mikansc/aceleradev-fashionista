@@ -3,11 +3,8 @@ import React, { useState } from 'react';
 import {} from '../../utils';
 
 const ProductDetail = (props) => {
-  // const { addToBag } = props;
-  // console.log(addToBag);
   const [quantity, setQuantity] = useState(1);
-
-  console.log('Ação do state no productDetail: ', props);
+  const [selectedSize, setSelectedSize] = useState(null);
 
   const handleQuantity = (operation) => {
     if (operation === 'add') {
@@ -19,10 +16,19 @@ const ProductDetail = (props) => {
     }
   };
 
+  const handleSizeSelect = (event) => {
+    const sku = event.target.value;
+    setSelectedSize(sku);
+  };
+
   const handleAddToBag = () => {
-    const prod = props.location.state;
-    console.log('Add To Cart:', quantity, prod);
-    props.addToBag(prod, quantity);
+    if (!selectedSize) {
+      alert('Você precisa selecionar um tamanho.');
+      return;
+    }
+    const sku = selectedSize;
+    console.log('Add To Cart:', quantity, sku);
+    props.addToBag(sku, quantity);
   };
 
   const {
@@ -32,6 +38,7 @@ const ProductDetail = (props) => {
     actual_price,
     on_sale,
     discount_percentage,
+    sizes,
   } = props.location.state;
   let fixImage = image || '/assets/images/20002605_615_catalog_1.jpg';
 
@@ -62,9 +69,22 @@ const ProductDetail = (props) => {
             </p>
           </div>
           <p className="product-detail__options">Escolha o tamanho:</p>
-          <button className="product-detail__size">P</button>
-          <button className="product-detail__size">M</button>
-          <button className="product-detail__size">G</button>
+          {sizes
+            .filter((item) => item.available === true)
+            .map((size, idx) => (
+              <button
+                key={idx}
+                value={size.sku}
+                className={
+                  size.size !== selectedSize
+                    ? 'product-detail__size'
+                    : 'product-detail__size product-detail__size--selected'
+                }
+                onClick={(event) => handleSizeSelect(event)}
+              >
+                {size.size}
+              </button>
+            ))}
 
           <div className="product-detail__controls">
             <p className="product-detail__options">Quantidade:</p>

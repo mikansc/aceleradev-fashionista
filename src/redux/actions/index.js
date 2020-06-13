@@ -1,13 +1,15 @@
 import axios from 'axios';
+import {
+  ADD_TO_BAG,
+  REMOVE_FROM_BAG,
+  CHANGE_QUANTITY,
+  SET_PRODUCTS,
+} from './actionTypes';
 
-export const ADD_TO_BAG = 'ADD_TO_BAG';
-export const REMOVE_FROM_BAG = 'REMOVE_FROM_BAG';
-export const SET_PRODUCTS = 'SET_PRODUCTS';
-
-export function addToBag(product, quantity) {
+export function addToBag(sku, quantity) {
   return {
     type: ADD_TO_BAG,
-    payload: { product, quantity },
+    payload: { sku, quantity },
   };
 }
 
@@ -15,6 +17,13 @@ export function removeFromBag(sku) {
   return {
     type: REMOVE_FROM_BAG,
     payload: sku,
+  };
+}
+
+export function changeQuantity(sku, operation) {
+  return {
+    type: CHANGE_QUANTITY,
+    payload: { sku, operation },
   };
 }
 

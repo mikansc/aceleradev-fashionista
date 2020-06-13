@@ -1,9 +1,7 @@
 import React from 'react';
 
 const BagItem = ({ item, removeFromBag }) => {
-  console.log('BagItem:', item);
   const { name, size, image, actual_price, installments, quantity, sku } = item;
-  console.log(sku);
   return (
     <article className="shopping-cart__item">
       <div className="col-4 shopping-cart__thumb">

@@ -7,7 +7,6 @@
     "installments": "3x R$ 66,63",
     "regular_price": "R$ 199,90",
     "actual_price": "R$ 199,90",
-    "total_Price": "R$ 999,50",
     "image": "https://viniciusvinna.netlify.app/assets/api-fashionista/20002605_615_catalog_1.jpg"
   },
   {
@@ -18,7 +17,6 @@
     "installments": "3x R$ 43,30",
     "regular_price": "R$ 129,90",
     "actual_price": "R$ 129,90",
-    "total_Price": "R$ 999,99",
     "image": "https://viniciusvinna.netlify.app/assets/api-fashionista/20002575_027_catalog_1.jpg"
   }
 ]

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const BagIcon = () => {
+const BagIcon = ({ count }) => {
   return (
     <div className="topbar__shoppingCart">
       <Link to="/shopping-bag">
@@ -10,7 +10,11 @@ const BagIcon = () => {
           src="/assets/images/icons/shopping-bag-line.svg"
           alt="Search"
         />
-        <span className="topbar__counter">11</span>
+        {count > 0 && (
+          <span className="topbar__counter">
+            {String(count).padStart(2, '0')}
+          </span>
+        )}
       </Link>
     </div>
   );

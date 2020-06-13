@@ -2,14 +2,15 @@ import React from 'react';
 import { BagItem } from '../';
 
 const ShoppingBag = ({ shoppingBag, removeFromBag }) => {
+  const { bag } = shoppingBag;
   return (
     <section className="shopping-cart">
       <div className="container">
         <h2 className="shopping-cart__title">Carrinho de compras</h2>
-        {shoppingBag.length < 1 ? (
+        {bag.length < 1 ? (
           <p>Não há produtos para exibir no carrinho de compras.</p>
         ) : (
-          shoppingBag.map((item) => (
+          bag.map((item) => (
             <BagItem key={item.sku} item={item} removeFromBag={removeFromBag} />
           ))
         )}

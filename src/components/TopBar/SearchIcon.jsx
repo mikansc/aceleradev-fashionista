@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Search = () => {
+const SearchIcon = () => {
   return (
     <button className="topbar__search" href="#">
       <img
@@ -12,4 +12,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default SearchIcon;

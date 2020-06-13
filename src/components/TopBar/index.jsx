@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { Logo, SearchIcon, BagIcon } from '../';
+import BagIcon from './BagIcon';
+import Logo from './Logo.jsx';
+import SearchIcon from './SearchIcon';
+import ShoppingBag from '../ShoppingBag';
 
-const TopBar = () => {
+const TopBar = ({ shoppingBag }) => {
   return (
     <>
       <header className="topbar">
@@ -13,7 +16,7 @@ const TopBar = () => {
           </Link>
           <div className="topbar__icons">
             <SearchIcon />
-            <BagIcon />
+            <BagIcon count={shoppingBag.itemCounter} />
           </div>
         </div>
       </header>

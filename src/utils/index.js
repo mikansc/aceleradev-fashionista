@@ -1,4 +1,4 @@
-export default function createSlug(str) {
+export function createSlug(str) {
   str = str.replace(/^\s+|\s+$/g, ''); // trim
   str = str.toLowerCase();
 
@@ -15,4 +15,12 @@ export default function createSlug(str) {
     .replace(/-+/g, '-'); // collapse dashes
 
   return str;
+}
+
+export function parseCurrency(value) {
+  return parseFloat(value.replace('R$ ', ''));
+}
+
+export function bagItemsTotalizer(bag) {
+  return bag.reduce((acc, item) => acc + Number(item.quantity), 0);
 }
