@@ -51,13 +51,22 @@ const ProductDetail = (props) => {
           <img src={fixImage} alt={name} />
           {on_sale && (
             <span className="product-detail__discount">
-              -{discount_percentage}
+              {' '}
+              Promoção -{discount_percentage} off
             </span>
           )}
         </div>
         <div className="product-detail__desc">
           <div className="product-detail__header">
-            <h1 className="product-detail__title">{name}</h1>
+            <h1 className="product-detail__title">
+              {name}
+              {on_sale && (
+                <span className="product-detail__installments">
+                  {' '}
+                  {'(promoção!)'}
+                </span>
+              )}
+            </h1>
             {on_sale && (
               <p className="product__price product__price--old">
                 {regular_price}

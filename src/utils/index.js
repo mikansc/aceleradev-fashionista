@@ -33,3 +33,15 @@ export function bagValueTotalizer(bag) {
 
   return total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
 }
+
+export function bagQuantityUpdate(quantity, operation) {
+  let newQty = quantity;
+  if (operation === 'add') {
+    return newQty + 1;
+  }
+  if (operation === 'sub') {
+    if (quantity === 1) return newQty;
+    return newQty - 1;
+  }
+  return newQty;
+}

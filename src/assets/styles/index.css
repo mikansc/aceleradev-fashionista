@@ -199,9 +199,10 @@ a:visited {
 }
 
 .product {
-  margin-top: 2rem;
   width: 48%;
+  height: 100%;
   margin-left: 5px;
+  margin-bottom: 2rem;
 
   display: flex;
   flex-direction: column;

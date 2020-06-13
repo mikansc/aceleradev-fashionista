@@ -1,12 +1,17 @@
 import {
   ADD_TO_BAG,
   REMOVE_FROM_BAG,
+  CHANGE_QUANTITY,
   SET_PRODUCTS,
   SEARCH,
 } from '../actions/actionTypes';
 
 import mock from '../../assets/mock.json';
-import { bagValueTotalizer, bagItemsTotalizer } from '../../utils';
+import {
+  bagValueTotalizer,
+  bagItemsTotalizer,
+  bagQuantityUpdate,
+} from '../../utils';
 
 const initialState = {
   shoppingBag: {
@@ -80,6 +85,30 @@ const shopReducer = (state = initialState, { type, payload }) => {
       // const newShoppingBag = shoppingBag.filter((item) => item.sku !== payload);
       // return { ...state, shoppingBag: newShoppingBag };
       return;
+
+    case CHANGE_QUANTITY:
+      console.log('Troquei a quantidade', payload);
+
+      const updatedBag = state.shoppingBag.bag.map((item) => item);
+      for (let item of updatedBag) {
+        if (item.sku === payload.sku) {
+          item.quantity = bagQuantityUpdate(item.quantity, payload.operation);
+        }
+      }
+      const updateItemCount = bagItemsTotalizer(updatedBag);
+      const updateTotal = bagValueTotalizer(updatedBag);
+
+      const updateBagToState = {
+        ...state.shoppingBag,
+        bag: updatedBag,
+        itemCounter: updateItemCount,
+        total: updateTotal,
+      };
+
+      return {
+        ...state,
+        shoppingBag: updateBagToState,
+      };
 
     case SEARCH:
       const searchResults = state.products.filter((product) =>

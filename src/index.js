@@ -6,6 +6,7 @@ import store from './redux/store';
 
 import App from './App';
 
+import './assets/styles/normalize.css';
 import './assets/styles/index.css';
 
 ReactDOM.render(

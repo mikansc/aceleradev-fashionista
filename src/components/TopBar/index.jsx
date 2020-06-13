@@ -35,12 +35,6 @@ const TopBar = ({ shoppingBag }) => {
           </div>
         </div>
       </header>
-
-      <div>
-        Top Bar
-        <Link to="/shopping-bag"></Link>
-        <Link to="/">HOme</Link>
-      </div>
     </>
   );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BagItem = ({ item, removeFromBag }) => {
+const BagItem = ({ item, removeFromBag, changeQuantity }) => {
   const { name, size, image, actual_price, installments, quantity, sku } = item;
   return (
     <article className="shopping-cart__item">
@@ -17,7 +17,7 @@ const BagItem = ({ item, removeFromBag }) => {
         <h3 className="product__title">{name}</h3>
         <p>Tam.: {size}</p>
         <div className="product-detail__counter">
-          <button>
+          <button onClick={() => changeQuantity(sku, 'add')}>
             <img
               className="product-detail__count"
               src="/assets/images/icons/plus-circle.svg"
@@ -25,7 +25,7 @@ const BagItem = ({ item, removeFromBag }) => {
             />
           </button>
           <span className="product-detail_quantity">{quantity}</span>
-          <button>
+          <button onClick={() => changeQuantity(sku, 'sub')}>
             <img
               className="product-detail__count"
               src="/assets/images/icons/minus-circle.svg"

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { removeFromBag } from '../../redux/actions';
+import { removeFromBag, changeQuantity } from '../../redux/actions';
 import { ShoppingBag } from '../../components';
 
 const mapStateToProps = (state) => {
@@ -11,6 +11,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     removeFromBag: (id) => dispatch(removeFromBag(id)),
+    changeQuantity: (sku, operation) =>
+      dispatch(changeQuantity(sku, operation)),
   };
 };
 

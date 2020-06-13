@@ -26,7 +26,9 @@ const Product = ({ product }) => {
         >
           <img src={fixImage} alt={name} />
           {on_sale && (
-            <span className="product__discount">-{discount_percentage}</span>
+            <span className="product__discount">
+              -{discount_percentage} off
+            </span>
           )}
         </Link>
       </div>

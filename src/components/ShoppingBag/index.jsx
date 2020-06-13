@@ -1,7 +1,7 @@
 import React from 'react';
 import { BagItem } from '../';
 
-const ShoppingBag = ({ shoppingBag, removeFromBag }) => {
+const ShoppingBag = ({ shoppingBag, removeFromBag, changeQuantity }) => {
   const { bag, total } = shoppingBag;
   return (
     <section className="shopping-cart">
@@ -11,7 +11,12 @@ const ShoppingBag = ({ shoppingBag, removeFromBag }) => {
           <p>Não há produtos para exibir no carrinho de compras.</p>
         ) : (
           bag.map((item) => (
-            <BagItem key={item.sku} item={item} removeFromBag={removeFromBag} />
+            <BagItem
+              key={item.sku}
+              item={item}
+              removeFromBag={removeFromBag}
+              changeQuantity={changeQuantity}
+            />
           ))
         )}
         <div className="shopping-cart__subtotal">
