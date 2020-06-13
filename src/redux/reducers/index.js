@@ -19,7 +19,7 @@ const initialState = {
     total: 0,
     itemCounter: 0,
   },
-  products: [],
+  products: mock,
   search: {
     searchQuery: '',
     searchResult: [],
