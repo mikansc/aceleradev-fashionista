@@ -5,7 +5,7 @@ import {
 } from '../actions/actionTypes';
 
 import mock from '../../assets/mock.json';
-import { parseCurrency, bagItemsTotalizer } from '../../utils';
+import { bagValueTotalizer, bagItemsTotalizer } from '../../utils';
 
 const initialState = {
   shoppingBag: {
@@ -56,11 +56,13 @@ const shopReducer = (state = initialState, { type, payload }) => {
       }
 
       const newItemCount = bagItemsTotalizer(newBag);
+      const newTotal = bagValueTotalizer(newBag);
 
       const newBagToState = {
         ...state.shoppingBag,
         bag: newBag,
         itemCounter: newItemCount,
+        total: newTotal,
       };
 
       return {

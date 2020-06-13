@@ -24,3 +24,12 @@ export function parseCurrency(value) {
 export function bagItemsTotalizer(bag) {
   return bag.reduce((acc, item) => acc + Number(item.quantity), 0);
 }
+
+export function bagValueTotalizer(bag) {
+  const total = bag.reduce(
+    (acc, item) => acc + item.quantity * parseCurrency(item.actual_price),
+    0
+  );
+
+  return total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+}
