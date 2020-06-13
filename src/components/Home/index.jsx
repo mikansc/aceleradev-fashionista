@@ -6,7 +6,7 @@ const Home = ({ products }) => {
   console.log('Lista de prods:', products);
   return (
     <div className="container">
-      {products ? (
+      {products.length > 1 ? (
         products.map((product, idx) => <Product key={idx} product={product} />)
       ) : (
         <Loading />

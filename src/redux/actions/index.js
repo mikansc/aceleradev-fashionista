@@ -39,11 +39,11 @@ export function fetchData() {
   return function (dispatch) {
     return axios
       .get('https://5e9935925eabe7001681c856.mockapi.io/api/v1/catalog')
-      .then((data) => dispatch(setProducts(data)));
+      .then(({ data }) => dispatch(setProducts(data)));
   };
 }
 
-function setProducts(data) {
+export function setProducts(data) {
   return {
     type: SET_PRODUCTS,
     payload: data,
