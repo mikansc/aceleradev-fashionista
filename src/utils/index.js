@@ -18,7 +18,7 @@ export function createSlug(str) {
 }
 
 export function parseCurrency(value) {
-  return parseFloat(value.replace('R$ ', ''));
+  return parseFloat(value.replace('R$ ', '').replace(',', '.'));
 }
 
 export function bagItemsTotalizer(bag) {
