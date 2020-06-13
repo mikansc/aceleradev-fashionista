@@ -12,11 +12,11 @@ import ProductContainer from './containers/ProductContainer';
 import TopBarContainer from './containers/TopBarContainer';
 
 const App = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // useState(() => {
-  //   dispatch(fetchData());
-  // }, []);
+  useState(() => {
+    dispatch(fetchData());
+  }, []);
 
   return (
     <Router>
