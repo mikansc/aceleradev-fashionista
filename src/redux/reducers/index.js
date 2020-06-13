@@ -81,10 +81,22 @@ const shopReducer = (state = initialState, { type, payload }) => {
       };
 
     case REMOVE_FROM_BAG:
-      // const { shoppingBag } = state;
-      // const newShoppingBag = shoppingBag.filter((item) => item.sku !== payload);
-      // return { ...state, shoppingBag: newShoppingBag };
-      return;
+      console.log('Remover', payload);
+
+      const removeFromBag = state.shoppingBag.bag.filter(
+        (item) => item.sku !== payload
+      );
+      const updateRemoveItemCount = bagItemsTotalizer(removeFromBag);
+      const updateRemoveTotal = bagValueTotalizer(removeFromBag);
+
+      const updateRemovedBag = {
+        ...state.shoppingBag,
+        bag: removeFromBag,
+        itemCounter: updateRemoveItemCount,
+        total: updateRemoveTotal,
+      };
+
+      return { ...state, shoppingBag: updateRemovedBag };
 
     case CHANGE_QUANTITY:
       console.log('Troquei a quantidade', payload);
