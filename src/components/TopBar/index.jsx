@@ -6,13 +6,19 @@ import Logo from './Logo.jsx';
 import SearchIcon from './SearchIcon';
 import { Search } from '../';
 
+import Bag from '../Bag';
+
 import { Drawer } from '@material-ui/core';
 
 const TopBar = ({ shoppingBag }) => {
   const [searchBarStatus, setsearchBarStatus] = useState(false);
+  const [bagBarStatus, setBagBarStatus] = useState(false);
 
   const toggleSearchBar = (value) => {
     setsearchBarStatus(!searchBarStatus);
+  };
+  const toggleBagBar = (value) => {
+    setBagBarStatus(!bagBarStatus);
   };
 
   return (
@@ -31,7 +37,13 @@ const TopBar = ({ shoppingBag }) => {
             >
               <Search />
             </Drawer>
-            <BagIcon count={shoppingBag.itemCounter} />
+            <Link to="/shopping-bag">
+              <BagIcon count={shoppingBag.itemCounter} />
+            </Link>
+            {/* <button onClick={toggleBagBar}>Clicaae</button>
+            <Drawer anchor="right" open={bagBarStatus} onClose={toggleBagBar}>
+              <Bag />
+            </Drawer> */}
           </div>
         </div>
       </header>

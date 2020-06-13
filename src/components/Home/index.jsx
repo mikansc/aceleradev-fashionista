@@ -3,7 +3,6 @@ import React from 'react';
 import { Product, Loading } from '..';
 
 const Home = ({ products }) => {
-  console.log('Lista de prods:', products);
   return (
     <div className="container">
       {products.length > 1 ? (
