@@ -1,7 +1,6 @@
 import React from 'react';
 
 const SizeButton = ({ size, onClickEvent, selected }) => {
-  console.log(selected);
   return (
     <button
       value={size.sku}

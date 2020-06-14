@@ -81,8 +81,6 @@ const shopReducer = (state = initialState, { type, payload }) => {
       };
 
     case REMOVE_FROM_BAG:
-      console.log('Remover', payload);
-
       const removeFromBag = state.shoppingBag.bag.filter(
         (item) => item.sku !== payload
       );
@@ -99,8 +97,6 @@ const shopReducer = (state = initialState, { type, payload }) => {
       return { ...state, shoppingBag: updateRemovedBag };
 
     case CHANGE_QUANTITY:
-      console.log('Troquei a quantidade', payload);
-
       const updatedBag = state.shoppingBag.bag.map((item) => item);
       for (let item of updatedBag) {
         if (item.sku === payload.sku) {
@@ -123,10 +119,13 @@ const shopReducer = (state = initialState, { type, payload }) => {
       };
 
     case SEARCH:
-      const searchResults = state.products.filter((product) =>
+      let searchResults = state.products.filter((product) =>
         product.name.toLowerCase().includes(payload.toLowerCase())
       );
-      console.log(searchResults);
+
+      if (payload === '') {
+        searchResults = [];
+      }
 
       const newSearch = {
         searchResult: searchResults,

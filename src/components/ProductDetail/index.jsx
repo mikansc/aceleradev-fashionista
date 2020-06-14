@@ -29,7 +29,6 @@ const ProductDetail = (props) => {
       return;
     }
     const sku = selectedSize;
-    console.log('Add To Cart:', quantity, sku);
     props.addToBag(sku, quantity);
   };
 

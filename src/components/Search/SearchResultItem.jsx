@@ -1,7 +1,6 @@
 import React from 'react';
 
 const SearchResultItem = ({ productData }) => {
-  console.log(productData);
   return (
     <article className="shopping-cart__item">
       <div className="col-6 shopping-cart__thumb">
