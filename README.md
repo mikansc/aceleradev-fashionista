@@ -1,10 +1,11 @@
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/01529bd9-601b-418e-a069-fb8ee9b4df0a/deploy-status)](https://app.netlify.com/sites/fashionista-react-michael-nascimento/deploys)
+
 
 # FASHIONISTA
 Trabalho de conclusão do curso AceleraDev React Online, da plataforma Codenation.
 
-### [Clique aqui para ver a demonstração](https://fashionista-react-michael-nascimento.netlify.app/)
+### [Clique aqui para ver a demonstração]
+(Infelizmente a API da loja foi desligada)
 
 ![](imagens/fashionista%20home%20desktop.jpg)
 ![](imagens/fashionista%20home%20mob.jpg)
